@@ -500,9 +500,9 @@ static int cpufreq_parse_dt(struct device *dev)
 	krait_freq_table = devm_kzalloc(dev, (nf + 1) * sizeof(*krait_freq_table),
 					GFP_KERNEL);
 	if (!krait_freq_table)
-		return ERR_PTR(-ENOMEM);
+		return -ENOMEM;
 
-	*krait_freq_table = *ftbl;
+	*krait_freq_table = *freq_table;
 
 	for (i = 0; i < nf; i++)
 		krait_freq_table[i].frequency = data[i];
